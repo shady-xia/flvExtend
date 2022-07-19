@@ -13,6 +13,10 @@
 - 实时更新视频
 - 解决 stuck 问题
 
+## Demo
+
+[https://shady-xia.github.io/flvExtend](https://shady-xia.github.io/flvExtend)
+
 ## 安装及使用
 
 ```bash
