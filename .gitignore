@@ -1,8 +1,6 @@
 .DS_Store
 .parcel-cache
 node_modules
-/dist
-
 
 # local env files
 .env.local
