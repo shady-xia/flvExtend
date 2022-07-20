@@ -11,6 +11,10 @@
     "mse",
     "javascript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shady-xia/flvExtend.git"
+  },
   "main": "./dist/flvExtend.js",
   "files": [
     "dist",

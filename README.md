@@ -4,7 +4,7 @@
 
 对 `flv.js` 的一些常见问题，形成解决方案并进行封装
 
-见文章：flv.js 追帧、断流重连及实时更新的直播优化方案
+见文章：[flv.js 追帧、断流重连及实时更新的直播优化方案](https://www.cnblogs.com/xiahj/p/flvExtend.html)
 
 ## 特性
 
