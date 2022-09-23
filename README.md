@@ -23,6 +23,10 @@
 npm install flv-extend -S
 ```
 
+```html
+<video id="video" controls autoplay></video>
+```
+
 ```js
 import FlvExtend from 'flv-extend'
 
