@@ -76,6 +76,7 @@ Options 选项如下：
 | ------------------- | ------------- | -------- | ---------------------------- |
 | element           | HTMLElement | 无     | \*必填，video 标签的 dom   |
 | frameTracking     | boolean     | false  | 是否开启追帧设置           |
+| frameTrackingDelta     | boolean     | 2  |  延迟容忍度，即缓冲区末尾时间与当前播放时间的差值，大于该值会触发追帧  |
 | updateOnStart     | boolean     | false  | 点击播放按钮后实时更新视频 |
 | updateOnFocus     | boolean     | false  | 回到前台后实时更新视频     |
 | reconnect         | boolean     | false  | 断流后重连                 |

@@ -94,7 +94,7 @@
               updateOnStart: this.extendSettings.updateOnStart, // 点击播放按钮后实时更新视频
               updateOnFocus: this.extendSettings.updateOnFocus, // 回到前台后实时更新
               reconnect: this.extendSettings.reconnect, // 断流后重连
-              reconnectInterval: 5000 // 重连间隔(ms)
+              reconnectInterval: 0 // 重连间隔(ms)
             })
 
             this.player = this.flv.init(
