@@ -49,15 +49,17 @@ var DEFAULT_OPTIONS = {
   // video element
   frameTracking: false,
   // 追帧设置
-  frameTrackingDelta: 2,
-  // 延迟容忍度，即缓冲区末尾时间与当前播放时间的差值，大于该值会触发追帧
   updateOnStart: false,
   // 点击播放按钮后实时更新视频
   updateOnFocus: false,
   // 获得焦点后实时更新视频
   reconnect: false,
   // 断流后重连
-  reconnectInterval: 0 // 重连间隔(ms)
+  reconnectInterval: 0,
+  // 重连间隔(ms)
+  trackingDelta: 2,
+  // 追帧最大延迟
+  trackingPlaybackRate: 1.1 // 追帧时的播放速率
 
 };
 
@@ -73,9 +75,7 @@ var FlvExtend = /*#__PURE__*/function () {
     this.options = Object.assign({}, DEFAULT_OPTIONS, options);
     this.videoElement = this.options.element;
 
-    if (!this.videoElement) {
-      throw new Error('options中缺少element参数！');
-    }
+    this._validateOptions();
   }
   /**
    * 初始化播放器
@@ -233,8 +233,8 @@ var FlvExtend = /*#__PURE__*/function () {
         } // 延迟较小时，通过调整播放速度的方式来追帧
 
 
-        if (delta > this.options.frameTrackingDelta) {
-          this.videoElement.playbackRate = 1.1;
+        if (delta > this.options.trackingDelta) {
+          this.videoElement.playbackRate = this.options.trackingPlaybackRate;
         } else {
           this.videoElement.playbackRate = 1;
         }
@@ -269,6 +269,22 @@ var FlvExtend = /*#__PURE__*/function () {
           stuckTime = 0;
         }
       }, 800);
+    }
+  }, {
+    key: "_validateOptions",
+    value: function _validateOptions() {
+      if (!this.videoElement) {
+        throw new Error('options中缺少element参数！');
+      }
+
+      if (this.options.trackingPlaybackRate < 1) {
+        throw new Error('trackingPlaybackRate参数不能小于1！');
+      } // 兼容旧参数
+
+
+      if (this.options.frameTrackingDelta) {
+        this.options.trackingDelta = this.options.frameTrackingDelta;
+      }
     }
   }]);
 

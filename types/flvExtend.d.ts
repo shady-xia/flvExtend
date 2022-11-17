@@ -31,6 +31,16 @@ declare namespace FlvExtend {
      * @defaultvalue 0
      */
     reconnectInterval?: number;
+    /**
+     * @desc 能接受的最大延迟(s)
+     * @defaultvalue 2
+     */
+    trackingDelta?: number;
+    /**
+     * @desc 追帧时的播放速率
+     * @defaultvalue 1.1
+     */
+    trackingPlaybackRate?: number;
   }
 
   interface Player extends FlvJs.Player {
@@ -44,14 +54,14 @@ declare namespace FlvExtend {
 }
 
 export default class FlvExtend {
-    constructor(options: FlvExtend.Options);
-    player: FlvExtend.Player;
-    options: FlvExtend.Options;
-    videoElement: HTMLElement;
-    init(mediaDataSource: FlvJs.MediaDataSource, config?: FlvJs.Config): FlvExtend.Player;
-    mediaDataSource: FlvJs.MediaDataSource;
-    config: FlvJs.Config;
-    update(): FlvExtend;
-    rebuild(): FlvExtend;
-    destroy(): FlvExtend;
+  constructor(options: FlvExtend.Options);
+  player: FlvExtend.Player;
+  options: FlvExtend.Options;
+  videoElement: HTMLElement;
+  init(mediaDataSource: FlvJs.MediaDataSource, config?: FlvJs.Config): FlvExtend.Player;
+  mediaDataSource: FlvJs.MediaDataSource;
+  config: FlvJs.Config;
+  update(): FlvExtend;
+  rebuild(): FlvExtend;
+  destroy(): FlvExtend;
 }

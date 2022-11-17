@@ -90,11 +90,11 @@
             this.flv = new FlvExtend({
               element: video,
               frameTracking: this.extendSettings.frameTracking, // 追帧设置
-              frameTrackingDelta: 2, // 延迟容忍度，即缓冲区末尾时间与当前播放时间的差值，大于该值会触发追帧
               updateOnStart: this.extendSettings.updateOnStart, // 点击播放按钮后实时更新视频
               updateOnFocus: this.extendSettings.updateOnFocus, // 回到前台后实时更新
               reconnect: this.extendSettings.reconnect, // 断流后重连
-              reconnectInterval: 0 // 重连间隔(ms)
+              reconnectInterval: 2000, // 重连间隔(ms)
+              trackingDelta: 2 // 追帧最大延迟
             })
 
             this.player = this.flv.init(
