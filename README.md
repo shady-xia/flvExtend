@@ -76,16 +76,16 @@ new FlvExtend(Options)
 Options 选项如下：
 
 
-| 字段                   | 类型          | 默认值 | 描述                                                                          |
-|----------------------|-------------| -------- |-----------------------------------------------------------------------------|
-| element              | HTMLElement | 无     | \*必填，video 标签的 dom                                                          |
-| frameTracking        | boolean     | false  | 是否开启追帧设置                                                                    |
-| updateOnStart        | boolean     | false  | 点击播放按钮后实时更新视频                                                               |
-| updateOnFocus        | boolean     | false  | 回到前台后实时更新视频                                                                 |
-| reconnect            | boolean     | false  | 断流后重连                                                                       |
-| reconnectInterval    | boolean     | 0      | 重连间隔(ms)                                                                    |
-| trackingDelta        | number      | 2 | 能接受的最大延迟(s)，当视频缓冲区末尾时间与当前播放时间的差值（即实时延迟）大于该值时，会触发追帧。注意：如果该值设置过小，则会频繁触发视频loading |
-| trackingPlaybackRate | number      | 1.1      | 追帧时的播放速率，需大于1                                                               |
+| 字段                   | 类型          | 默认值 | 描述                                                                                                           |
+|----------------------|-------------| -------- |--------------------------------------------------------------------------------------------------------------|
+| *element             | HTMLElement | 无     | \*必填，video 标签的 dom                                                                                           |
+| frameTracking        | boolean     | false  | 是否开启追帧设置                                                                                                     |
+| updateOnStart        | boolean     | false  | 点击播放按钮后实时更新视频                                                                                                |
+| updateOnFocus        | boolean     | false  | 回到前台后实时更新视频                                                                                                  |
+| reconnect            | boolean     | false  | 断流后重连                                                                                                        |
+| reconnectInterval    | boolean     | 0      | 重连间隔(ms)                                                                                                     |
+| trackingDelta        | number      | 2 | 能接受的最大延迟(s)，当视频缓冲区末尾时间与当前播放时间的差值（即实时延迟）大于该值时，会触发追帧。注意：如果该值设置过小，则会频繁触发视频loading。仅当设置 `frameTracking:true` 时有效 |
+| trackingPlaybackRate | number      | 1.1      | 追帧时的播放速率，需大于1。仅当设置 `frameTracking:true` 时有效                                                                  |
 
 
 **init(mediaDataSource, config)**

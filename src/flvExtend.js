@@ -93,9 +93,8 @@ class FlvExtend {
 
     // 点击播放按钮，更新视频
     if (this.options.updateOnStart) {
-      this.videoElement.addEventListener('play', () => {
-        this.update()
-      })
+      this.videoElement.removeEventListener('play', this.update.bind(this))
+      this.videoElement.addEventListener('play', this.update.bind(this))
     }
 
     // 网页重新激活后，更新视频
