@@ -141,6 +141,8 @@ var FlvExtend = /*#__PURE__*/function () {
 
       this.interval && clearInterval(this.interval);
       this.timeout && clearTimeout(this.timeout);
+      this.videoElement.removeEventListener('progress', this._handleFrameTracking.bind(this));
+      this.videoElement.removeEventListener('play', this.update.bind(this));
       window.onfocus = null;
     }
   }, {
@@ -156,9 +158,8 @@ var FlvExtend = /*#__PURE__*/function () {
 
 
       if (this.options.updateOnStart) {
-        this.videoElement.addEventListener('play', function () {
-          _this.update();
-        });
+        this.videoElement.removeEventListener('play', this.update.bind(this));
+        this.videoElement.addEventListener('play', this.update.bind(this));
       } // 网页重新激活后，更新视频
 
 
@@ -230,7 +231,7 @@ var FlvExtend = /*#__PURE__*/function () {
           console.log("%c \u51C6\u5907\u8DF3\u5E27. ", 'background:red;color:#fff', (_this$player$_transmu = this.player._transmuxer) === null || _this$player$_transmu === void 0 ? void 0 : _this$player$_transmu._controller);
           this.update();
           return;
-        }
+        } // 延迟较小时，通过调整播放速度的方式来追帧
 
 
         if (delta > this.options.trackingDelta) {
