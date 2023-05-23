@@ -81,6 +81,8 @@ class FlvExtend {
     }
     this.interval && clearInterval(this.interval)
     this.timeout && clearTimeout(this.timeout)
+    this.videoElement.removeEventListener('progress', this._handleFrameTracking.bind(this))
+    this.videoElement.removeEventListener('play', this.update.bind(this))
     window.onfocus = null
   }
 

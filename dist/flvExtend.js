@@ -141,6 +141,8 @@ var FlvExtend = /*#__PURE__*/function () {
 
       this.interval && clearInterval(this.interval);
       this.timeout && clearTimeout(this.timeout);
+      this.videoElement.removeEventListener('progress', this._handleFrameTracking.bind(this));
+      this.videoElement.removeEventListener('play', this.update.bind(this));
       window.onfocus = null;
     }
   }, {
@@ -156,9 +158,8 @@ var FlvExtend = /*#__PURE__*/function () {
 
 
       if (this.options.updateOnStart) {
-        this.videoElement.addEventListener('play', function () {
-          _this.update();
-        });
+        this.videoElement.removeEventListener('play', this.update.bind(this));
+        this.videoElement.addEventListener('play', this.update.bind(this));
       } // 网页重新激活后，更新视频
 
 
