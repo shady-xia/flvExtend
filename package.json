@@ -1,6 +1,6 @@
 {
   "name": "flv-extend",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "",
   "license": "Anti 996",
   "author": "shady-xia",
@@ -28,7 +28,7 @@
     "build:min": "cross-env NODE_ENV=production webpack"
   },
   "dependencies": {
-    "flv.js": "^1.6.2"
+    "mpegts.js": "^1.7.3"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

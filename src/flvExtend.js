@@ -3,7 +3,7 @@
  * 特性：追帧、断流重连、实时更新、解决stuck问题
  * author：Xia
  */
-import flvjs from 'flv.js'
+import flvjs from 'mpegts.js'
 
 const DEFAULT_OPTIONS = {
   element: '', // video element
@@ -13,7 +13,8 @@ const DEFAULT_OPTIONS = {
   reconnect: false, // 断流后重连
   reconnectInterval: 0, // 重连间隔(ms)
   trackingDelta: 2, // 追帧最大延迟
-  trackingPlaybackRate: 1.1 // 追帧时的播放速率
+  trackingPlaybackRate: 1.1, // 追帧时的播放速率
+  showLog: true // 是否显示插件的log信息（回到前台、跳帧、卡住重建、视频ERROR）
 }
 
 class FlvExtend {
@@ -102,7 +103,7 @@ class FlvExtend {
     // 网页重新激活后，更新视频
     if (this.options.updateOnFocus) {
       window.onfocus = () => {
-        console.log(`%c 回到前台 `, 'background:red;color:#fff')
+        this.log('回到前台')
         this.update()
       }
     }
@@ -128,7 +129,7 @@ class FlvExtend {
           this.rebuild()
         }, reconnectInterval)
       }
-      console.log(`%c 视频ERROR： `, 'background:red;color:#fff', e)
+      this.log('视频ERROR', e)
     })
     this.player.on(flvjs.Events.STATISTICS_INFO, (e) => this.player.onstats(e))
     this.player.on(flvjs.Events.MEDIA_INFO, (e) => this.player.onmedia(e))
@@ -144,11 +145,7 @@ class FlvExtend {
 
       // 延迟过大，通过跳帧的方式更新视频
       if (delta > 10 || delta < 0) {
-        console.log(
-          `%c 准备跳帧. `,
-          'background:red;color:#fff',
-          this.player._transmuxer?._controller
-        )
+        this.log('跳帧', this.player._transmuxer?._controller)
         this.update()
         return
       }
@@ -178,7 +175,7 @@ class FlvExtend {
         // 可能卡住了，重载
         stuckTime++
         if (stuckTime > 1) {
-          console.log(`%c 卡住，重建视频`, 'background:red;color:#fff')
+          this.log('卡住，重建视频')
           this.rebuild()
         }
       } else {
@@ -200,6 +197,12 @@ class FlvExtend {
     // 兼容旧参数
     if (this.options.frameTrackingDelta) {
       this.options.trackingDelta = this.options.frameTrackingDelta
+    }
+  }
+
+  log(message, ...rest) {
+    if (this.options.showLog) {
+      console.log(`%c ${message}`, 'background:red;color:#fff', ...rest)
     }
   }
 }

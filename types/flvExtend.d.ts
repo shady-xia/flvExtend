@@ -1,4 +1,4 @@
-import FlvJs from 'flv.js/d.ts/flv'
+import FlvJs from 'mpegts.js/d.ts/mpegts'
 
 declare namespace FlvExtend {
   interface Options {
@@ -41,6 +41,11 @@ declare namespace FlvExtend {
      * @defaultvalue 1.1
      */
     trackingPlaybackRate?: number;
+    /**
+     * @desc 是否显示插件的log信息（回到前台、跳帧、卡住重建、视频ERROR）
+     * @defaultvalue false
+     */
+    showLog?: boolean;
   }
 
   interface Player extends FlvJs.Player {

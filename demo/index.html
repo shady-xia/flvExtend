@@ -94,7 +94,8 @@
               updateOnFocus: this.extendSettings.updateOnFocus, // 回到前台后实时更新
               reconnect: this.extendSettings.reconnect, // 断流后重连
               reconnectInterval: 2000, // 重连间隔(ms)
-              trackingDelta: 2 // 追帧最大延迟
+              trackingDelta: 2, // 追帧最大延迟
+              showLog: true
             })
 
             this.player = this.flv.init(
@@ -106,7 +107,10 @@
                 withCredentials: this.flvSettings.withCredentials
               },
               {
-                enableStashBuffer: false // 是否启用IO隐藏缓冲区。如果您需要实时（最小延迟）来进行实时流播放，则设置为false
+                enableStashBuffer: false, // 如果您需要实时（最小延迟）来进行实时流播放，则设置为false
+                autoCleanupSourceBuffer: true, // 对SourceBuffer进行自动清理
+                stashInitialSize: 128, // 减少首帧显示等待时长
+                enableWorker: true // 启用分离的线程进行转换
               }
             )
 
