@@ -15,6 +15,9 @@
         <div class="video-wrap">
           <div class="video-inner">
             <video id="video" autoplay controls muted preload="none"></video>
+            <div class="video-error" v-if="error">
+              <p>{{error}}</p>
+            </div>
           </div>
         </div>
 
@@ -67,7 +70,8 @@
             updateOnFocus: true,
             reconnect: true
           },
-          stats: ''
+          stats: '',
+          error: ''
         },
 
         mounted() {
@@ -81,19 +85,16 @@
 
             this.saveOptions()
 
-            if (this.flv) {
-              this.flv.destroy()
-            }
-
             var video = document.getElementById('video')
 
-            this.flv = new FlvExtend({
+            var flv = this.flv = new FlvExtend({
               element: video,
               frameTracking: this.extendSettings.frameTracking, // 追帧设置
               updateOnStart: this.extendSettings.updateOnStart, // 点击播放按钮后实时更新视频
               updateOnFocus: this.extendSettings.updateOnFocus, // 回到前台后实时更新
               reconnect: this.extendSettings.reconnect, // 断流后重连
               reconnectInterval: 2000, // 重连间隔(ms)
+              maxReconnectAttempts: 10, // 最大重连次数
               trackingDelta: 2, // 追帧最大延迟
               showLog: true
             })
@@ -114,10 +115,32 @@
               }
             )
 
+            // 播放
             this.player.play()
 
-            this.player.onstats = (e) => {
-              this.stats = JSON.stringify(e, null, 2)
+            // 绑定事件回调
+            flv.onStatisticsInfo = (data) => {
+              this.stats = JSON.stringify(data, null, 2)
+            }
+
+            flv.onError = (err, currentPlayer) => {
+              console.log('onError', err, currentPlayer)
+              this.error = '播放失败，准备重连'
+            }
+
+            flv.onReconnect = ({reconnectAttempts}) => {
+              console.log('onReconnect')
+              this.error = `尝试第${reconnectAttempts}次重连...`
+            }
+
+            flv.onReconnectFailed = (err) => {
+              this.error = '重连失败，请检查视频'
+            }
+
+            flv.onProgress = e => {
+              if (this.error) {
+                this.error = ''
+              }
             }
           },
 
