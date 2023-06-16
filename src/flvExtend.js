@@ -10,8 +10,9 @@ const DEFAULT_OPTIONS = {
   frameTracking: false, // 追帧设置
   updateOnStart: false, // 点击播放按钮后实时更新视频
   updateOnFocus: false, // 获得焦点后实时更新视频
-  reconnect: false, // 断流后重连
-  reconnectInterval: 0, // 重连间隔(ms)
+  reconnect: true, // 断流后重连
+  reconnectInterval: 1000, // 重连间隔(ms)
+  maxReconnectAttempts: null, // 最大重连次数（为null则不限制次数）
   trackingDelta: 2, // 追帧最大延迟
   trackingPlaybackRate: 1.1, // 追帧时的播放速率
   showLog: true // 是否显示插件的log信息（回到前台、跳帧、卡住重建、视频ERROR）
@@ -27,6 +28,8 @@ class FlvExtend {
     this.options = Object.assign({}, DEFAULT_OPTIONS, options)
 
     this.videoElement = this.options.element
+    this.reconnectAttempts = 0
+    this.forcedClose = false
 
     this._validateOptions()
   }
@@ -44,6 +47,8 @@ class FlvExtend {
 
     this.mediaDataSource = mediaDataSource
     this.config = config
+
+    this.forcedClose = false
 
     if (this.videoElement) {
       this.player = flvjs.createPlayer(mediaDataSource, config)
@@ -68,6 +73,7 @@ class FlvExtend {
 
   // 重建播放器
   rebuild() {
+    if (this.forcedClose) return
     this.destroy()
     this.init(this.mediaDataSource, this.config)
   }
@@ -82,17 +88,24 @@ class FlvExtend {
     }
     this.interval && clearInterval(this.interval)
     this.timeout && clearTimeout(this.timeout)
-    this.videoElement.removeEventListener('progress', this._handleFrameTracking.bind(this))
+    this.videoElement.removeEventListener('progress', this._onProgress.bind(this))
     this.videoElement.removeEventListener('play', this.update.bind(this))
     window.onfocus = null
   }
 
-  _bindPlayerOptions() {
+  _onProgress(e) {
     // 追帧设置
     if (this.options.frameTracking) {
-      this.videoElement.removeEventListener('progress', this._handleFrameTracking.bind(this))
-      this.videoElement.addEventListener('progress', this._handleFrameTracking.bind(this))
+      this._handleFrameTracking()
     }
+
+    this.reconnectAttempts = 0
+    this.onProgress(e, this.player)
+  }
+
+  _bindPlayerOptions() {
+    this.videoElement.removeEventListener('progress', this._onProgress.bind(this))
+    this.videoElement.addEventListener('progress', this._onProgress.bind(this))
 
     // 点击播放按钮，更新视频
     if (this.options.updateOnStart) {
@@ -110,29 +123,72 @@ class FlvExtend {
   }
 
   _bindPlayerMethods() {
-    this.player.close = this.destroy.bind(this)
+    // this.player.close = this.destroy.bind(this)
+    this.player.close = () => {
+      this.forcedClose = true
+      this.destroy()
+    }
     this.player.update = this.update.bind(this)
     this.player.rebuild = this.rebuild.bind(this)
-  }
 
-  _bindPlayerEvents() {
+    // 从 v0.3.0 开始废弃
     this.player.onerror = (e) => {}
     this.player.onstats = (e) => {}
     this.player.onmedia = (e) => {}
+  }
 
-    this.player.on(flvjs.Events.ERROR, (e) => {
-      this.player.onerror(e)
+  _bindPlayerEvents() {
+    const events = flvjs.Events
+    for (let i in events) {
+      const eventCamelCase = this.toCamelCase(events[i])
+      this[`on${eventCamelCase}`] = (e, player) => {}
 
-      const { reconnect, reconnectInterval } = this.options
-      if (reconnect && reconnectInterval >= 0) {
-        this.timeout = setTimeout(() => {
-          this.rebuild()
-        }, reconnectInterval)
+      // 批量绑定mpegts事件回调
+      if (events[i] !== 'error') {
+        this.player.on(events[i], (e) => {
+          this[`on${eventCamelCase}`](e, this.player)
+        })
       }
-      this.log('视频ERROR', e)
+    }
+
+    this.player.on(flvjs.Events.ERROR, (...e) => {
+      const err = [...e]
+      const errorObj = {
+        type: err[0],
+        detail: err[1],
+        info: err[2]
+      }
+      this.onError(errorObj, this.player)
+      this.player.onerror(errorObj)
+      this._tryReconnect(errorObj)
+      this.log('视频ERROR', errorObj)
     })
-    this.player.on(flvjs.Events.STATISTICS_INFO, (e) => this.player.onstats(e))
-    this.player.on(flvjs.Events.MEDIA_INFO, (e) => this.player.onmedia(e))
+
+    this.player.on(flvjs.Events.STATISTICS_INFO, (statisticsInfo) => {
+      this.player.onstats(statisticsInfo)
+    })
+
+    this.player.on(flvjs.Events.MEDIA_INFO, (mediaInfo) => {
+      this.reconnectAttempts = 0
+      this.player.onmedia(mediaInfo)
+    })
+  }
+
+  _tryReconnect(e) {
+    const { reconnect, reconnectInterval, maxReconnectAttempts } = this.options
+    if (!reconnect) return
+
+    if (!maxReconnectAttempts || (maxReconnectAttempts && this.reconnectAttempts < maxReconnectAttempts)) {
+      this.timeout = setTimeout(() => {
+        this.reconnectAttempts++
+        this.onReconnect({...e, reconnectAttempts: this.reconnectAttempts}, this.player)
+        this.rebuild()
+      }, reconnectInterval)
+
+      // 重连次数已耗尽，重连失败
+    } else {
+      this.onReconnectFailed(e, this.player)
+    }
   }
 
   // 追帧
@@ -145,7 +201,7 @@ class FlvExtend {
 
       // 延迟过大，通过跳帧的方式更新视频
       if (delta > 10 || delta < 0) {
-        this.log('跳帧', this.player._transmuxer?._controller)
+        this.log('跳帧')
         this.update()
         return
       }
@@ -167,22 +223,24 @@ class FlvExtend {
     let stuckTime = 0
 
     this.interval && clearInterval(this.interval)
+
+    // 目前连续3s帧无变化则为视频卡住，后续可根据需求进行扩展
     this.interval = setInterval(() => {
       const decodedFrames = this.player.statisticsInfo.decodedFrames
       if (!decodedFrames) return
 
       if (lastDecodedFrames === decodedFrames && !this.videoElement.paused) {
-        // 可能卡住了，重载
         stuckTime++
-        if (stuckTime > 1) {
-          this.log('卡住，重建视频')
-          this.rebuild()
+        if (stuckTime > 2) {
+          this.onStuck(this.player)
+          // this.log('STUCK')
+          // this.rebuild()
         }
       } else {
         lastDecodedFrames = decodedFrames
         stuckTime = 0
       }
-    }, 800)
+    }, 1000)
   }
 
   _validateOptions() {
@@ -198,6 +256,10 @@ class FlvExtend {
     if (this.options.frameTrackingDelta) {
       this.options.trackingDelta = this.options.frameTrackingDelta
     }
+
+    if (this.options.reconnectInterval <= 0) {
+      this.options.reconnectInterval = 1000
+    }
   }
 
   log(message, ...rest) {
@@ -205,6 +267,17 @@ class FlvExtend {
       console.log(`%c ${message}`, 'background:red;color:#fff', ...rest)
     }
   }
+
+  toCamelCase(str) {
+    const arr = str.split(/[_-]/);
+    const capitalizedArr = arr.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    return capitalizedArr.join('');
+  }
+
+  onReconnect(e, player) {}
+  onReconnectFailed(e, player) {}
+  onProgress(e, player) {}
+  onStuck(player) {}
 }
 
 export default FlvExtend

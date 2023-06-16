@@ -22,23 +22,52 @@ return /******/ (() => { // webpackBootstrap
 /* harmony import */ var core_js_modules_es6_object_assign_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_assign_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_es6_function_bind_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9730);
 /* harmony import */ var core_js_modules_es6_function_bind_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_function_bind_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es6_symbol_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5767);
-/* harmony import */ var core_js_modules_es6_symbol_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_symbol_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es6_number_constructor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1246);
-/* harmony import */ var core_js_modules_es6_number_constructor_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_number_constructor_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es6_object_define_property_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8388);
-/* harmony import */ var core_js_modules_es6_object_define_property_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_define_property_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es6_string_iterator_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9115);
-/* harmony import */ var core_js_modules_es6_string_iterator_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es6_object_to_string_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6253);
-/* harmony import */ var core_js_modules_es6_object_to_string_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_to_string_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es6_array_iterator_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(6997);
-/* harmony import */ var core_js_modules_es6_array_iterator_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_web_dom_iterable_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1181);
-/* harmony import */ var core_js_modules_web_dom_iterable_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var mpegts_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(2527);
-/* harmony import */ var mpegts_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(mpegts_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es6_regexp_split_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1876);
+/* harmony import */ var core_js_modules_es6_regexp_split_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_split_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es6_array_map_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9371);
+/* harmony import */ var core_js_modules_es6_array_map_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_map_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es6_array_slice_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(110);
+/* harmony import */ var core_js_modules_es6_array_slice_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_slice_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es6_symbol_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5767);
+/* harmony import */ var core_js_modules_es6_symbol_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_symbol_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es6_number_constructor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1246);
+/* harmony import */ var core_js_modules_es6_number_constructor_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_number_constructor_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es6_object_define_property_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8388);
+/* harmony import */ var core_js_modules_es6_object_define_property_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_define_property_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es6_object_keys_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(7476);
+/* harmony import */ var core_js_modules_es6_object_keys_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_keys_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es6_array_filter_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8837);
+/* harmony import */ var core_js_modules_es6_array_filter_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_filter_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es6_object_get_own_property_descriptor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(4882);
+/* harmony import */ var core_js_modules_es6_object_get_own_property_descriptor_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_get_own_property_descriptor_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es6_array_for_each_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(4336);
+/* harmony import */ var core_js_modules_es6_array_for_each_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_for_each_js__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es7_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(8351);
+/* harmony import */ var core_js_modules_es7_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es7_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var core_js_modules_es6_object_define_properties_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(7470);
+/* harmony import */ var core_js_modules_es6_object_define_properties_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_define_properties_js__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var core_js_modules_es6_string_iterator_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(9115);
+/* harmony import */ var core_js_modules_es6_string_iterator_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_iterator_js__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var core_js_modules_es6_object_to_string_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(6253);
+/* harmony import */ var core_js_modules_es6_object_to_string_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_object_to_string_js__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var core_js_modules_es6_array_iterator_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(6997);
+/* harmony import */ var core_js_modules_es6_array_iterator_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_iterator_js__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var core_js_modules_web_dom_iterable_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(1181);
+/* harmony import */ var core_js_modules_web_dom_iterable_js__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_iterable_js__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var mpegts_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(2527);
+/* harmony import */ var mpegts_js__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(mpegts_js__WEBPACK_IMPORTED_MODULE_18__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -69,10 +98,12 @@ var DEFAULT_OPTIONS = {
   // 点击播放按钮后实时更新视频
   updateOnFocus: false,
   // 获得焦点后实时更新视频
-  reconnect: false,
+  reconnect: true,
   // 断流后重连
-  reconnectInterval: 0,
+  reconnectInterval: 1000,
   // 重连间隔(ms)
+  maxReconnectAttempts: null,
+  // 最大重连次数（为null则不限制次数）
   trackingDelta: 2,
   // 追帧最大延迟
   trackingPlaybackRate: 1.1,
@@ -88,6 +119,8 @@ var FlvExtend = /*#__PURE__*/function () {
     _defineProperty(this, "player", null);
     this.options = Object.assign({}, DEFAULT_OPTIONS, options);
     this.videoElement = this.options.element;
+    this.reconnectAttempts = 0;
+    this.forcedClose = false;
     this._validateOptions();
   }
 
@@ -106,8 +139,9 @@ var FlvExtend = /*#__PURE__*/function () {
       }
       this.mediaDataSource = mediaDataSource;
       this.config = config;
+      this.forcedClose = false;
       if (this.videoElement) {
-        this.player = mpegts_js__WEBPACK_IMPORTED_MODULE_9___default().createPlayer(mediaDataSource, config);
+        this.player = mpegts_js__WEBPACK_IMPORTED_MODULE_18___default().createPlayer(mediaDataSource, config);
         this.player.attachMediaElement(this.videoElement);
         this.player.load();
       }
@@ -131,6 +165,7 @@ var FlvExtend = /*#__PURE__*/function () {
   }, {
     key: "rebuild",
     value: function rebuild() {
+      if (this.forcedClose) return;
       this.destroy();
       this.init(this.mediaDataSource, this.config);
     }
@@ -146,19 +181,26 @@ var FlvExtend = /*#__PURE__*/function () {
       }
       this.interval && clearInterval(this.interval);
       this.timeout && clearTimeout(this.timeout);
-      this.videoElement.removeEventListener('progress', this._handleFrameTracking.bind(this));
+      this.videoElement.removeEventListener('progress', this._onProgress.bind(this));
       this.videoElement.removeEventListener('play', this.update.bind(this));
       window.onfocus = null;
+    }
+  }, {
+    key: "_onProgress",
+    value: function _onProgress(e) {
+      // 追帧设置
+      if (this.options.frameTracking) {
+        this._handleFrameTracking();
+      }
+      this.reconnectAttempts = 0;
+      this.onProgress(e, this.player);
     }
   }, {
     key: "_bindPlayerOptions",
     value: function _bindPlayerOptions() {
       var _this = this;
-      // 追帧设置
-      if (this.options.frameTracking) {
-        this.videoElement.removeEventListener('progress', this._handleFrameTracking.bind(this));
-        this.videoElement.addEventListener('progress', this._handleFrameTracking.bind(this));
-      }
+      this.videoElement.removeEventListener('progress', this._onProgress.bind(this));
+      this.videoElement.addEventListener('progress', this._onProgress.bind(this));
 
       // 点击播放按钮，更新视频
       if (this.options.updateOnStart) {
@@ -177,35 +219,84 @@ var FlvExtend = /*#__PURE__*/function () {
   }, {
     key: "_bindPlayerMethods",
     value: function _bindPlayerMethods() {
-      this.player.close = this.destroy.bind(this);
+      var _this2 = this;
+      // this.player.close = this.destroy.bind(this)
+      this.player.close = function () {
+        _this2.forcedClose = true;
+        _this2.destroy();
+      };
       this.player.update = this.update.bind(this);
       this.player.rebuild = this.rebuild.bind(this);
+
+      // 从 v0.3.0 开始废弃
+      this.player.onerror = function (e) {};
+      this.player.onstats = function (e) {};
+      this.player.onmedia = function (e) {};
     }
   }, {
     key: "_bindPlayerEvents",
     value: function _bindPlayerEvents() {
-      var _this2 = this;
-      this.player.onerror = function (e) {};
-      this.player.onstats = function (e) {};
-      this.player.onmedia = function (e) {};
-      this.player.on((mpegts_js__WEBPACK_IMPORTED_MODULE_9___default().Events.ERROR), function (e) {
-        _this2.player.onerror(e);
-        var _this2$options = _this2.options,
-          reconnect = _this2$options.reconnect,
-          reconnectInterval = _this2$options.reconnectInterval;
-        if (reconnect && reconnectInterval >= 0) {
-          _this2.timeout = setTimeout(function () {
-            _this2.rebuild();
-          }, reconnectInterval);
+      var _this3 = this;
+      var events = (mpegts_js__WEBPACK_IMPORTED_MODULE_18___default().Events);
+      var _loop = function _loop() {
+        var eventCamelCase = _this3.toCamelCase(events[i]);
+        _this3["on".concat(eventCamelCase)] = function (e, player) {};
+
+        // 批量绑定mpegts事件回调
+        if (events[i] !== 'error') {
+          _this3.player.on(events[i], function (e) {
+            _this3["on".concat(eventCamelCase)](e, _this3.player);
+          });
         }
-        _this2.log('视频ERROR', e);
+      };
+      for (var i in events) {
+        _loop();
+      }
+      this.player.on((mpegts_js__WEBPACK_IMPORTED_MODULE_18___default().Events.ERROR), function () {
+        for (var _len = arguments.length, e = new Array(_len), _key = 0; _key < _len; _key++) {
+          e[_key] = arguments[_key];
+        }
+        var err = [].concat(e);
+        var errorObj = {
+          type: err[0],
+          detail: err[1],
+          info: err[2]
+        };
+        _this3.onError(errorObj, _this3.player);
+        _this3.player.onerror(errorObj);
+        _this3._tryReconnect(errorObj);
+        _this3.log('视频ERROR', errorObj);
       });
-      this.player.on((mpegts_js__WEBPACK_IMPORTED_MODULE_9___default().Events.STATISTICS_INFO), function (e) {
-        return _this2.player.onstats(e);
+      this.player.on((mpegts_js__WEBPACK_IMPORTED_MODULE_18___default().Events.STATISTICS_INFO), function (statisticsInfo) {
+        _this3.player.onstats(statisticsInfo);
       });
-      this.player.on((mpegts_js__WEBPACK_IMPORTED_MODULE_9___default().Events.MEDIA_INFO), function (e) {
-        return _this2.player.onmedia(e);
+      this.player.on((mpegts_js__WEBPACK_IMPORTED_MODULE_18___default().Events.MEDIA_INFO), function (mediaInfo) {
+        _this3.reconnectAttempts = 0;
+        _this3.player.onmedia(mediaInfo);
       });
+    }
+  }, {
+    key: "_tryReconnect",
+    value: function _tryReconnect(e) {
+      var _this4 = this;
+      var _this$options = this.options,
+        reconnect = _this$options.reconnect,
+        reconnectInterval = _this$options.reconnectInterval,
+        maxReconnectAttempts = _this$options.maxReconnectAttempts;
+      if (!reconnect) return;
+      if (!maxReconnectAttempts || maxReconnectAttempts && this.reconnectAttempts < maxReconnectAttempts) {
+        this.timeout = setTimeout(function () {
+          _this4.reconnectAttempts++;
+          _this4.onReconnect(_objectSpread(_objectSpread({}, e), {}, {
+            reconnectAttempts: _this4.reconnectAttempts
+          }), _this4.player);
+          _this4.rebuild();
+        }, reconnectInterval);
+
+        // 重连次数已耗尽，重连失败
+      } else {
+        this.onReconnectFailed(e, this.player);
+      }
     }
 
     // 追帧
@@ -220,8 +311,7 @@ var FlvExtend = /*#__PURE__*/function () {
 
         // 延迟过大，通过跳帧的方式更新视频
         if (delta > 10 || delta < 0) {
-          var _this$player$_transmu;
-          this.log('跳帧', (_this$player$_transmu = this.player._transmuxer) === null || _this$player$_transmu === void 0 ? void 0 : _this$player$_transmu._controller);
+          this.log('跳帧');
           this.update();
           return;
         }
@@ -241,25 +331,27 @@ var FlvExtend = /*#__PURE__*/function () {
   }, {
     key: "_handleStuck",
     value: function _handleStuck() {
-      var _this3 = this;
+      var _this5 = this;
       var lastDecodedFrames = 0;
       var stuckTime = 0;
       this.interval && clearInterval(this.interval);
+
+      // 目前连续3s帧无变化则为视频卡住，后续可根据需求进行扩展
       this.interval = setInterval(function () {
-        var decodedFrames = _this3.player.statisticsInfo.decodedFrames;
+        var decodedFrames = _this5.player.statisticsInfo.decodedFrames;
         if (!decodedFrames) return;
-        if (lastDecodedFrames === decodedFrames && !_this3.videoElement.paused) {
-          // 可能卡住了，重载
+        if (lastDecodedFrames === decodedFrames && !_this5.videoElement.paused) {
           stuckTime++;
-          if (stuckTime > 1) {
-            _this3.log('卡住，重建视频');
-            _this3.rebuild();
+          if (stuckTime > 2) {
+            _this5.onStuck(_this5.player);
+            // this.log('STUCK')
+            // this.rebuild()
           }
         } else {
           lastDecodedFrames = decodedFrames;
           stuckTime = 0;
         }
-      }, 800);
+      }, 1000);
     }
   }, {
     key: "_validateOptions",
@@ -275,18 +367,42 @@ var FlvExtend = /*#__PURE__*/function () {
       if (this.options.frameTrackingDelta) {
         this.options.trackingDelta = this.options.frameTrackingDelta;
       }
+      if (this.options.reconnectInterval <= 0) {
+        this.options.reconnectInterval = 1000;
+      }
     }
   }, {
     key: "log",
     value: function log(message) {
       if (this.options.showLog) {
         var _console;
-        for (var _len = arguments.length, rest = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-          rest[_key - 1] = arguments[_key];
+        for (var _len2 = arguments.length, rest = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+          rest[_key2 - 1] = arguments[_key2];
         }
         (_console = console).log.apply(_console, ["%c ".concat(message), 'background:red;color:#fff'].concat(rest));
       }
     }
+  }, {
+    key: "toCamelCase",
+    value: function toCamelCase(str) {
+      var arr = str.split(/[_-]/);
+      var capitalizedArr = arr.map(function (word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      });
+      return capitalizedArr.join('');
+    }
+  }, {
+    key: "onReconnect",
+    value: function onReconnect(e, player) {}
+  }, {
+    key: "onReconnectFailed",
+    value: function onReconnectFailed(e, player) {}
+  }, {
+    key: "onProgress",
+    value: function onProgress(e, player) {}
+  }, {
+    key: "onStuck",
+    value: function onStuck(player) {}
   }]);
   return FlvExtend;
 }();
@@ -321,6 +437,22 @@ var ArrayProto = Array.prototype;
 if (ArrayProto[UNSCOPABLES] == undefined) __webpack_require__(7728)(ArrayProto, UNSCOPABLES, {});
 module.exports = function (key) {
   ArrayProto[UNSCOPABLES][key] = true;
+};
+
+
+/***/ }),
+
+/***/ 6793:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var at = __webpack_require__(4496)(true);
+
+ // `AdvanceStringIndex` abstract operation
+// https://tc39.github.io/ecma262/#sec-advancestringindex
+module.exports = function (S, index, unicode) {
+  return index + (unicode ? at(S, index).length : 1);
 };
 
 
@@ -363,6 +495,93 @@ module.exports = function (IS_INCLUDES) {
       if (O[index] === el) return IS_INCLUDES || index || 0;
     } return !IS_INCLUDES && -1;
   };
+};
+
+
+/***/ }),
+
+/***/ 50:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 0 -> Array#forEach
+// 1 -> Array#map
+// 2 -> Array#filter
+// 3 -> Array#some
+// 4 -> Array#every
+// 5 -> Array#find
+// 6 -> Array#findIndex
+var ctx = __webpack_require__(741);
+var IObject = __webpack_require__(9797);
+var toObject = __webpack_require__(508);
+var toLength = __webpack_require__(875);
+var asc = __webpack_require__(6886);
+module.exports = function (TYPE, $create) {
+  var IS_MAP = TYPE == 1;
+  var IS_FILTER = TYPE == 2;
+  var IS_SOME = TYPE == 3;
+  var IS_EVERY = TYPE == 4;
+  var IS_FIND_INDEX = TYPE == 6;
+  var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+  var create = $create || asc;
+  return function ($this, callbackfn, that) {
+    var O = toObject($this);
+    var self = IObject(O);
+    var f = ctx(callbackfn, that, 3);
+    var length = toLength(self.length);
+    var index = 0;
+    var result = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined;
+    var val, res;
+    for (;length > index; index++) if (NO_HOLES || index in self) {
+      val = self[index];
+      res = f(val, index, O);
+      if (TYPE) {
+        if (IS_MAP) result[index] = res;   // map
+        else if (res) switch (TYPE) {
+          case 3: return true;             // some
+          case 5: return val;              // find
+          case 6: return index;            // findIndex
+          case 2: result.push(val);        // filter
+        } else if (IS_EVERY) return false; // every
+      }
+    }
+    return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
+  };
+};
+
+
+/***/ }),
+
+/***/ 2736:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isObject = __webpack_require__(5286);
+var isArray = __webpack_require__(4302);
+var SPECIES = __webpack_require__(6314)('species');
+
+module.exports = function (original) {
+  var C;
+  if (isArray(original)) {
+    C = original.constructor;
+    // cross-realm fallback
+    if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
+    if (isObject(C)) {
+      C = C[SPECIES];
+      if (C === null) C = undefined;
+    }
+  } return C === undefined ? Array : C;
+};
+
+
+/***/ }),
+
+/***/ 6886:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 9.4.2.3 ArraySpeciesCreate(originalArray, length)
+var speciesConstructor = __webpack_require__(2736);
+
+module.exports = function (original, length) {
+  return new (speciesConstructor(original))(length);
 };
 
 
@@ -448,6 +667,22 @@ module.exports = function (it) {
 
 var core = module.exports = { version: '2.6.12' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ 2811:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $defineProperty = __webpack_require__(9275);
+var createDesc = __webpack_require__(681);
+
+module.exports = function (object, index, value) {
+  if (index in object) $defineProperty.f(object, index, createDesc(0, value));
+  else object[index] = value;
+};
 
 
 /***/ }),
@@ -613,6 +848,131 @@ module.exports = function (exec) {
 
 /***/ }),
 
+/***/ 8082:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+__webpack_require__(8269);
+var redefine = __webpack_require__(7234);
+var hide = __webpack_require__(7728);
+var fails = __webpack_require__(4253);
+var defined = __webpack_require__(1355);
+var wks = __webpack_require__(6314);
+var regexpExec = __webpack_require__(1165);
+
+var SPECIES = wks('species');
+
+var REPLACE_SUPPORTS_NAMED_GROUPS = !fails(function () {
+  // #replace needs built-in support for named groups.
+  // #match works fine because it just return the exec results, even if it has
+  // a "grops" property.
+  var re = /./;
+  re.exec = function () {
+    var result = [];
+    result.groups = { a: '7' };
+    return result;
+  };
+  return ''.replace(re, '$<a>') !== '7';
+});
+
+var SPLIT_WORKS_WITH_OVERWRITTEN_EXEC = (function () {
+  // Chrome 51 has a buggy "split" implementation when RegExp#exec !== nativeExec
+  var re = /(?:)/;
+  var originalExec = re.exec;
+  re.exec = function () { return originalExec.apply(this, arguments); };
+  var result = 'ab'.split(re);
+  return result.length === 2 && result[0] === 'a' && result[1] === 'b';
+})();
+
+module.exports = function (KEY, length, exec) {
+  var SYMBOL = wks(KEY);
+
+  var DELEGATES_TO_SYMBOL = !fails(function () {
+    // String methods call symbol-named RegEp methods
+    var O = {};
+    O[SYMBOL] = function () { return 7; };
+    return ''[KEY](O) != 7;
+  });
+
+  var DELEGATES_TO_EXEC = DELEGATES_TO_SYMBOL ? !fails(function () {
+    // Symbol-named RegExp methods call .exec
+    var execCalled = false;
+    var re = /a/;
+    re.exec = function () { execCalled = true; return null; };
+    if (KEY === 'split') {
+      // RegExp[@@split] doesn't call the regex's exec method, but first creates
+      // a new one. We need to return the patched regex when creating the new one.
+      re.constructor = {};
+      re.constructor[SPECIES] = function () { return re; };
+    }
+    re[SYMBOL]('');
+    return !execCalled;
+  }) : undefined;
+
+  if (
+    !DELEGATES_TO_SYMBOL ||
+    !DELEGATES_TO_EXEC ||
+    (KEY === 'replace' && !REPLACE_SUPPORTS_NAMED_GROUPS) ||
+    (KEY === 'split' && !SPLIT_WORKS_WITH_OVERWRITTEN_EXEC)
+  ) {
+    var nativeRegExpMethod = /./[SYMBOL];
+    var fns = exec(
+      defined,
+      SYMBOL,
+      ''[KEY],
+      function maybeCallNative(nativeMethod, regexp, str, arg2, forceStringMethod) {
+        if (regexp.exec === regexpExec) {
+          if (DELEGATES_TO_SYMBOL && !forceStringMethod) {
+            // The native String method already delegates to @@method (this
+            // polyfilled function), leasing to infinite recursion.
+            // We avoid it by directly calling the native @@method method.
+            return { done: true, value: nativeRegExpMethod.call(regexp, str, arg2) };
+          }
+          return { done: true, value: nativeMethod.call(str, regexp, arg2) };
+        }
+        return { done: false };
+      }
+    );
+    var strfn = fns[0];
+    var rxfn = fns[1];
+
+    redefine(String.prototype, KEY, strfn);
+    hide(RegExp.prototype, SYMBOL, length == 2
+      // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
+      // 21.2.5.11 RegExp.prototype[@@split](string, limit)
+      ? function (string, arg) { return rxfn.call(string, this, arg); }
+      // 21.2.5.6 RegExp.prototype[@@match](string)
+      // 21.2.5.9 RegExp.prototype[@@search](string)
+      : function (string) { return rxfn.call(string, this); }
+    );
+  }
+};
+
+
+/***/ }),
+
+/***/ 3218:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// 21.2.5.3 get RegExp.prototype.flags
+var anObject = __webpack_require__(7007);
+module.exports = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
+};
+
+
+/***/ }),
+
 /***/ 18:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -748,6 +1108,21 @@ module.exports = Array.isArray || function isArray(arg) {
 
 module.exports = function (it) {
   return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+
+/***/ }),
+
+/***/ 5364:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 7.2.8 IsRegExp(argument)
+var isObject = __webpack_require__(5286);
+var cof = __webpack_require__(2032);
+var MATCH = __webpack_require__(6314)('match');
+module.exports = function (it) {
+  var isRegExp;
+  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
 };
 
 
@@ -1211,6 +1586,40 @@ exports.f = {}.propertyIsEnumerable;
 
 /***/ }),
 
+/***/ 3160:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__(2985);
+var core = __webpack_require__(5645);
+var fails = __webpack_require__(4253);
+module.exports = function (KEY, exec) {
+  var fn = (core.Object || {})[KEY] || Object[KEY];
+  var exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+};
+
+
+/***/ }),
+
+/***/ 7643:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// all object keys, includes non-enumerable and symbols
+var gOPN = __webpack_require__(616);
+var gOPS = __webpack_require__(4548);
+var anObject = __webpack_require__(7007);
+var Reflect = (__webpack_require__(3816).Reflect);
+module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
+  var keys = gOPN.f(anObject(it));
+  var getSymbols = gOPS.f;
+  return getSymbols ? keys.concat(getSymbols(it)) : keys;
+};
+
+
+/***/ }),
+
 /***/ 681:
 /***/ ((module) => {
 
@@ -1260,6 +1669,101 @@ var TPL = ('' + $toString).split(TO_STRING);
 })(Function.prototype, TO_STRING, function toString() {
   return typeof this == 'function' && this[SRC] || $toString.call(this);
 });
+
+
+/***/ }),
+
+/***/ 7787:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var classof = __webpack_require__(1488);
+var builtinExec = RegExp.prototype.exec;
+
+ // `RegExpExec` abstract operation
+// https://tc39.github.io/ecma262/#sec-regexpexec
+module.exports = function (R, S) {
+  var exec = R.exec;
+  if (typeof exec === 'function') {
+    var result = exec.call(R, S);
+    if (typeof result !== 'object') {
+      throw new TypeError('RegExp exec method returned something other than an Object or null');
+    }
+    return result;
+  }
+  if (classof(R) !== 'RegExp') {
+    throw new TypeError('RegExp#exec called on incompatible receiver');
+  }
+  return builtinExec.call(R, S);
+};
+
+
+/***/ }),
+
+/***/ 1165:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var regexpFlags = __webpack_require__(3218);
+
+var nativeExec = RegExp.prototype.exec;
+// This always refers to the native implementation, because the
+// String#replace polyfill uses ./fix-regexp-well-known-symbol-logic.js,
+// which loads this file before patching the method.
+var nativeReplace = String.prototype.replace;
+
+var patchedExec = nativeExec;
+
+var LAST_INDEX = 'lastIndex';
+
+var UPDATES_LAST_INDEX_WRONG = (function () {
+  var re1 = /a/,
+      re2 = /b*/g;
+  nativeExec.call(re1, 'a');
+  nativeExec.call(re2, 'a');
+  return re1[LAST_INDEX] !== 0 || re2[LAST_INDEX] !== 0;
+})();
+
+// nonparticipating capturing group, copied from es5-shim's String#split patch.
+var NPCG_INCLUDED = /()??/.exec('')[1] !== undefined;
+
+var PATCH = UPDATES_LAST_INDEX_WRONG || NPCG_INCLUDED;
+
+if (PATCH) {
+  patchedExec = function exec(str) {
+    var re = this;
+    var lastIndex, reCopy, match, i;
+
+    if (NPCG_INCLUDED) {
+      reCopy = new RegExp('^' + re.source + '$(?!\\s)', regexpFlags.call(re));
+    }
+    if (UPDATES_LAST_INDEX_WRONG) lastIndex = re[LAST_INDEX];
+
+    match = nativeExec.call(re, str);
+
+    if (UPDATES_LAST_INDEX_WRONG && match) {
+      re[LAST_INDEX] = re.global ? match.index + match[0].length : lastIndex;
+    }
+    if (NPCG_INCLUDED && match && match.length > 1) {
+      // Fix browsers whose `exec` methods don't consistently return `undefined`
+      // for NPCG, like IE8. NOTE: This doesn' work for /(.?)?/
+      // eslint-disable-next-line no-loop-func
+      nativeReplace.call(match[0], reCopy, function () {
+        for (i = 1; i < arguments.length - 2; i++) {
+          if (arguments[i] === undefined) match[i] = undefined;
+        }
+      });
+    }
+
+    return match;
+  };
+}
+
+module.exports = patchedExec;
 
 
 /***/ }),
@@ -1337,6 +1841,39 @@ var store = global[SHARED] || (global[SHARED] = {});
   mode: __webpack_require__(4461) ? 'pure' : 'global',
   copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
+
+
+/***/ }),
+
+/***/ 8364:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 7.3.20 SpeciesConstructor(O, defaultConstructor)
+var anObject = __webpack_require__(7007);
+var aFunction = __webpack_require__(4963);
+var SPECIES = __webpack_require__(6314)('species');
+module.exports = function (O, D) {
+  var C = anObject(O).constructor;
+  var S;
+  return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
+};
+
+
+/***/ }),
+
+/***/ 7717:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var fails = __webpack_require__(4253);
+
+module.exports = function (method, arg) {
+  return !!method && fails(function () {
+    // eslint-disable-next-line no-useless-call
+    arg ? method.call(null, function () { /* empty */ }, 1) : method.call(null);
+  });
+};
 
 
 /***/ }),
@@ -1549,6 +2086,43 @@ $exports.store = store;
 
 /***/ }),
 
+/***/ 8837:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $export = __webpack_require__(2985);
+var $filter = __webpack_require__(50)(2);
+
+$export($export.P + $export.F * !__webpack_require__(7717)([].filter, true), 'Array', {
+  // 22.1.3.7 / 15.4.4.20 Array.prototype.filter(callbackfn [, thisArg])
+  filter: function filter(callbackfn /* , thisArg */) {
+    return $filter(this, callbackfn, arguments[1]);
+  }
+});
+
+
+/***/ }),
+
+/***/ 4336:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $export = __webpack_require__(2985);
+var $forEach = __webpack_require__(50)(0);
+var STRICT = __webpack_require__(7717)([].forEach, true);
+
+$export($export.P + $export.F * !STRICT, 'Array', {
+  // 22.1.3.10 / 15.4.4.18 Array.prototype.forEach(callbackfn [, thisArg])
+  forEach: function forEach(callbackfn /* , thisArg */) {
+    return $forEach(this, callbackfn, arguments[1]);
+  }
+});
+
+
+/***/ }),
+
 /***/ 6997:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -1587,6 +2161,60 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
+
+
+/***/ }),
+
+/***/ 9371:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $export = __webpack_require__(2985);
+var $map = __webpack_require__(50)(1);
+
+$export($export.P + $export.F * !__webpack_require__(7717)([].map, true), 'Array', {
+  // 22.1.3.15 / 15.4.4.19 Array.prototype.map(callbackfn [, thisArg])
+  map: function map(callbackfn /* , thisArg */) {
+    return $map(this, callbackfn, arguments[1]);
+  }
+});
+
+
+/***/ }),
+
+/***/ 110:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $export = __webpack_require__(2985);
+var html = __webpack_require__(639);
+var cof = __webpack_require__(2032);
+var toAbsoluteIndex = __webpack_require__(2337);
+var toLength = __webpack_require__(875);
+var arraySlice = [].slice;
+
+// fallback for not array-like ES3 strings and DOM objects
+$export($export.P + $export.F * __webpack_require__(4253)(function () {
+  if (html) arraySlice.call(html);
+}), 'Array', {
+  slice: function slice(begin, end) {
+    var len = toLength(this.length);
+    var klass = cof(this);
+    end = end === undefined ? len : end;
+    if (klass == 'Array') return arraySlice.call(this, begin, end);
+    var start = toAbsoluteIndex(begin, len);
+    var upTo = toAbsoluteIndex(end, len);
+    var size = toLength(upTo - start);
+    var cloned = new Array(size);
+    var i = 0;
+    for (; i < size; i++) cloned[i] = klass == 'String'
+      ? this.charAt(start + i)
+      : this[start + i];
+    return cloned;
+  }
+});
 
 
 /***/ }),
@@ -1690,12 +2318,54 @@ $export($export.S + $export.F, 'Object', { assign: __webpack_require__(5345) });
 
 /***/ }),
 
+/***/ 7470:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $export = __webpack_require__(2985);
+// 19.1.2.3 / 15.2.3.7 Object.defineProperties(O, Properties)
+$export($export.S + $export.F * !__webpack_require__(7057), 'Object', { defineProperties: __webpack_require__(5588) });
+
+
+/***/ }),
+
 /***/ 8388:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $export = __webpack_require__(2985);
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !__webpack_require__(7057), 'Object', { defineProperty: (__webpack_require__(9275).f) });
+
+
+/***/ }),
+
+/***/ 4882:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+var toIObject = __webpack_require__(2110);
+var $getOwnPropertyDescriptor = (__webpack_require__(8693).f);
+
+__webpack_require__(3160)('getOwnPropertyDescriptor', function () {
+  return function getOwnPropertyDescriptor(it, key) {
+    return $getOwnPropertyDescriptor(toIObject(it), key);
+  };
+});
+
+
+/***/ }),
+
+/***/ 7476:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(508);
+var $keys = __webpack_require__(7184);
+
+__webpack_require__(3160)('keys', function () {
+  return function keys(it) {
+    return $keys(toObject(it));
+  };
+});
 
 
 /***/ }),
@@ -1714,6 +2384,165 @@ if (test + '' != '[object z]') {
     return '[object ' + classof(this) + ']';
   }, true);
 }
+
+
+/***/ }),
+
+/***/ 8269:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var regexpExec = __webpack_require__(1165);
+__webpack_require__(2985)({
+  target: 'RegExp',
+  proto: true,
+  forced: regexpExec !== /./.exec
+}, {
+  exec: regexpExec
+});
+
+
+/***/ }),
+
+/***/ 1876:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isRegExp = __webpack_require__(5364);
+var anObject = __webpack_require__(7007);
+var speciesConstructor = __webpack_require__(8364);
+var advanceStringIndex = __webpack_require__(6793);
+var toLength = __webpack_require__(875);
+var callRegExpExec = __webpack_require__(7787);
+var regexpExec = __webpack_require__(1165);
+var fails = __webpack_require__(4253);
+var $min = Math.min;
+var $push = [].push;
+var $SPLIT = 'split';
+var LENGTH = 'length';
+var LAST_INDEX = 'lastIndex';
+var MAX_UINT32 = 0xffffffff;
+
+// babel-minify transpiles RegExp('x', 'y') -> /x/y and it causes SyntaxError
+var SUPPORTS_Y = !fails(function () { RegExp(MAX_UINT32, 'y'); });
+
+// @@split logic
+__webpack_require__(8082)('split', 2, function (defined, SPLIT, $split, maybeCallNative) {
+  var internalSplit;
+  if (
+    'abbc'[$SPLIT](/(b)*/)[1] == 'c' ||
+    'test'[$SPLIT](/(?:)/, -1)[LENGTH] != 4 ||
+    'ab'[$SPLIT](/(?:ab)*/)[LENGTH] != 2 ||
+    '.'[$SPLIT](/(.?)(.?)/)[LENGTH] != 4 ||
+    '.'[$SPLIT](/()()/)[LENGTH] > 1 ||
+    ''[$SPLIT](/.?/)[LENGTH]
+  ) {
+    // based on es5-shim implementation, need to rework it
+    internalSplit = function (separator, limit) {
+      var string = String(this);
+      if (separator === undefined && limit === 0) return [];
+      // If `separator` is not a regex, use native split
+      if (!isRegExp(separator)) return $split.call(string, separator, limit);
+      var output = [];
+      var flags = (separator.ignoreCase ? 'i' : '') +
+                  (separator.multiline ? 'm' : '') +
+                  (separator.unicode ? 'u' : '') +
+                  (separator.sticky ? 'y' : '');
+      var lastLastIndex = 0;
+      var splitLimit = limit === undefined ? MAX_UINT32 : limit >>> 0;
+      // Make `global` and avoid `lastIndex` issues by working with a copy
+      var separatorCopy = new RegExp(separator.source, flags + 'g');
+      var match, lastIndex, lastLength;
+      while (match = regexpExec.call(separatorCopy, string)) {
+        lastIndex = separatorCopy[LAST_INDEX];
+        if (lastIndex > lastLastIndex) {
+          output.push(string.slice(lastLastIndex, match.index));
+          if (match[LENGTH] > 1 && match.index < string[LENGTH]) $push.apply(output, match.slice(1));
+          lastLength = match[0][LENGTH];
+          lastLastIndex = lastIndex;
+          if (output[LENGTH] >= splitLimit) break;
+        }
+        if (separatorCopy[LAST_INDEX] === match.index) separatorCopy[LAST_INDEX]++; // Avoid an infinite loop
+      }
+      if (lastLastIndex === string[LENGTH]) {
+        if (lastLength || !separatorCopy.test('')) output.push('');
+      } else output.push(string.slice(lastLastIndex));
+      return output[LENGTH] > splitLimit ? output.slice(0, splitLimit) : output;
+    };
+  // Chakra, V8
+  } else if ('0'[$SPLIT](undefined, 0)[LENGTH]) {
+    internalSplit = function (separator, limit) {
+      return separator === undefined && limit === 0 ? [] : $split.call(this, separator, limit);
+    };
+  } else {
+    internalSplit = $split;
+  }
+
+  return [
+    // `String.prototype.split` method
+    // https://tc39.github.io/ecma262/#sec-string.prototype.split
+    function split(separator, limit) {
+      var O = defined(this);
+      var splitter = separator == undefined ? undefined : separator[SPLIT];
+      return splitter !== undefined
+        ? splitter.call(separator, O, limit)
+        : internalSplit.call(String(O), separator, limit);
+    },
+    // `RegExp.prototype[@@split]` method
+    // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@split
+    //
+    // NOTE: This cannot be properly polyfilled in engines that don't support
+    // the 'y' flag.
+    function (regexp, limit) {
+      var res = maybeCallNative(internalSplit, regexp, this, limit, internalSplit !== $split);
+      if (res.done) return res.value;
+
+      var rx = anObject(regexp);
+      var S = String(this);
+      var C = speciesConstructor(rx, RegExp);
+
+      var unicodeMatching = rx.unicode;
+      var flags = (rx.ignoreCase ? 'i' : '') +
+                  (rx.multiline ? 'm' : '') +
+                  (rx.unicode ? 'u' : '') +
+                  (SUPPORTS_Y ? 'y' : 'g');
+
+      // ^(? + rx + ) is needed, in combination with some S slicing, to
+      // simulate the 'y' flag.
+      var splitter = new C(SUPPORTS_Y ? rx : '^(?:' + rx.source + ')', flags);
+      var lim = limit === undefined ? MAX_UINT32 : limit >>> 0;
+      if (lim === 0) return [];
+      if (S.length === 0) return callRegExpExec(splitter, S) === null ? [S] : [];
+      var p = 0;
+      var q = 0;
+      var A = [];
+      while (q < S.length) {
+        splitter.lastIndex = SUPPORTS_Y ? q : 0;
+        var z = callRegExpExec(splitter, SUPPORTS_Y ? S : S.slice(q));
+        var e;
+        if (
+          z === null ||
+          (e = $min(toLength(splitter.lastIndex + (SUPPORTS_Y ? 0 : q)), S.length)) === p
+        ) {
+          q = advanceStringIndex(S, q, unicodeMatching);
+        } else {
+          A.push(S.slice(p, q));
+          if (A.length === lim) return A;
+          for (var i = 1; i <= z.length - 1; i++) {
+            A.push(z[i]);
+            if (A.length === lim) return A;
+          }
+          q = p = e;
+        }
+      }
+      A.push(S.slice(p));
+      return A;
+    }
+  ];
+});
 
 
 /***/ }),
@@ -1993,6 +2822,35 @@ setToStringTag($Symbol, 'Symbol');
 setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
+
+
+/***/ }),
+
+/***/ 8351:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// https://github.com/tc39/proposal-object-getownpropertydescriptors
+var $export = __webpack_require__(2985);
+var ownKeys = __webpack_require__(7643);
+var toIObject = __webpack_require__(2110);
+var gOPD = __webpack_require__(8693);
+var createProperty = __webpack_require__(2811);
+
+$export($export.S, 'Object', {
+  getOwnPropertyDescriptors: function getOwnPropertyDescriptors(object) {
+    var O = toIObject(object);
+    var getDesc = gOPD.f;
+    var keys = ownKeys(O);
+    var result = {};
+    var i = 0;
+    var key, desc;
+    while (keys.length > i) {
+      desc = getDesc(O, key = keys[i++]);
+      if (desc !== undefined) createProperty(result, key, desc);
+    }
+    return result;
+  }
+});
 
 
 /***/ }),

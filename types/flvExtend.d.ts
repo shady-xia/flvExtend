@@ -23,14 +23,19 @@ declare namespace FlvExtend {
     updateOnFocus?: boolean;
     /**
      * @desc 断流后重连
-     * @defaultvalue false
+     * @defaultvalue true
      */
     reconnect?: boolean;
     /**
      * @desc 重连间隔(ms)
-     * @defaultvalue 0
+     * @defaultvalue 1000
      */
     reconnectInterval?: number;
+    /**
+     * @desc 重连尝试次数
+     * @defaultvalue null
+     */
+    maxReconnectAttempts?: null | number;
     /**
      * @desc 能接受的最大延迟(s)
      * @defaultvalue 2
@@ -56,6 +61,16 @@ declare namespace FlvExtend {
     onstats(event: string): void;
     onmedia(event: string): void;
   }
+
+  interface errorObj {
+    type: string;
+    detail: string;
+    info: object
+  }
+
+  interface reconnectObj extends errorObj {
+    reconnectAttempts: number
+  }
 }
 
 export default class FlvExtend {
@@ -63,10 +78,26 @@ export default class FlvExtend {
   player: FlvExtend.Player;
   options: FlvExtend.Options;
   videoElement: HTMLElement;
+  reconnectAttempts: number;
   init(mediaDataSource: FlvJs.MediaDataSource, config?: FlvJs.Config): FlvExtend.Player;
   mediaDataSource: FlvJs.MediaDataSource;
   config: FlvJs.Config;
-  update(): FlvExtend;
-  rebuild(): FlvExtend;
-  destroy(): FlvExtend;
+  update(): void;
+  rebuild(): void;
+  destroy(): void;
+  onReconnect(reconnect: FlvExtend.reconnectObj, player: FlvExtend.Player): void;
+  onReconnectFailed(err: FlvExtend.errorObj, player: FlvExtend.Player): void;
+  onProgress(event, player: FlvExtend.Player): void;
+  onStuck(player: FlvExtend.Player): void;
+  onError(err: FlvExtend.errorObj, player: FlvExtend.Player): void;
+  onLoadingComplete(player: FlvExtend.Player): void;
+  onRecoveredEarlyEof(player: FlvExtend.Player): void;
+  onMediaInfo(mediaInfo, player: FlvExtend.Player): void;
+  onMetadataArrived(metadata, player: FlvExtend.Player): void;
+  onScriptdataArrived(data, player: FlvExtend.Player): void;
+  onTimedId3MetadataArrived(timed_id3_metadata, player: FlvExtend.Player): void;
+  onSmpte2038MetadataArrived(smpte2038_metadata, player: FlvExtend.Player): void;
+  onScte35MetadataArrived(scte35_metadata, player: FlvExtend.Player): void;
+  onPesPrivateDataArrived(private_data, player: FlvExtend.Player): void;
+  onStatisticsInfo(statisticsInfo, player: FlvExtend.Player): void;
 }

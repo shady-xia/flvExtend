@@ -35,6 +35,19 @@ input:focus {
   margin-right: 30px;
 }
 
+.video-inner {
+  position: relative;
+}
+
+.video-error {
+  position: absolute;
+  top: 68%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #b19b9b;
+}
+
 .setting-wrap .title {
   padding-left: 10px;
   margin-bottom: 20px;

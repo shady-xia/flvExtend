@@ -6,12 +6,14 @@
 
 见文章：[flv.js 追帧、断流重连及实时更新的直播优化方案](https://www.cnblogs.com/xiahj/p/flvExtend.html)
 
+
 ## 特性
 
 - 更流畅的追帧
 - 断流重连
 - 实时更新视频
-- 解决 stuck 问题，视频卡住自动重建
+- ~~解决 stuck 问题，视频卡住自动重建~~
+- 方法和事件封装，更易使用
 
 ## Demo
 
@@ -97,29 +99,31 @@ player.play()
 
 ### FlvExtend
 
-**constructor**
-
 实例化 FlvExtend
 
 ```js
-new FlvExtend(Options)
+const flv = new FlvExtend(Options)
 ```
 
 Options 选项如下：
 
 
-| 字段                   | 类型          | 默认值   | 描述                                                                                                           |
-|----------------------|-------------|-------|--------------------------------------------------------------------------------------------------------------|
-| *element             | HTMLElement | 无     | \*必填，video 标签的 dom                                                                                           |
+| 字段                   | 类型          | 默认值  | 描述                                                                                                           |
+|----------------------|-------------|------|--------------------------------------------------------------------------------------------------------------|
+| *element             | HTMLElement | 无    | \*必填，video 标签的 dom                                                                                           |
 | frameTracking        | boolean     | false | 是否开启追帧设置                                                                                                     |
 | updateOnStart        | boolean     | false | 点击播放按钮后实时更新视频                                                                                                |
 | updateOnFocus        | boolean     | false | 回到前台后实时更新视频                                                                                                  |
-| reconnect            | boolean     | false | 断流后重连                                                                                                        |
-| reconnectInterval    | boolean     | 0     | 重连间隔(ms)                                                                                                     |
-| trackingDelta        | number      | 2     | 能接受的最大延迟(s)，当视频缓冲区末尾时间与当前播放时间的差值（即实时延迟）大于该值时，会触发追帧。注意：如果该值设置过小，则会频繁触发视频loading。仅当设置 `frameTracking:true` 时有效 |
-| trackingPlaybackRate | number      | 1.1   | 追帧时的播放速率，需大于1。仅当设置 `frameTracking:true` 时有效                                                                  |
+| reconnect            | boolean     | true | 断流后重连                                                                                                        |
+| reconnectInterval    | boolean     | 1000 | 重连间隔(ms)                                                                                                     |
+| maxReconnectAttempts | number/null | null  | 重连尝试次数，为null则不限制                                                                                                |
+| trackingDelta        | number      | 2    | 能接受的最大延迟(s)，当视频缓冲区末尾时间与当前播放时间的差值（即实时延迟）大于该值时，会触发追帧。注意：如果该值设置过小，则会频繁触发视频loading。仅当设置 `frameTracking:true` 时有效 |
+| trackingPlaybackRate | number      | 1.1  | 追帧时的播放速率，需大于1。仅当设置 `frameTracking:true` 时有效                                                                  |
 | showLog              | boolean     | false | 是否显示插件的log信息（包括回到前台、跳帧、卡住重建、视频ERROR）                                                                         |
 
+### Flv对象
+
+flv为FlvExtend实例化后的对象
 
 **init(mediaDataSource, config)**
 
@@ -142,11 +146,13 @@ Options 选项如下：
 ```js
 // e.g.
 const player = flv.init(
+    // 此处为MediaDataSource配置
   {
     type: 'flv',
     url: 'http://192.168.0.11/stream',
     isLive: true
   },
+    // 此处为Config配置  
   {
     enableStashBuffer: false // 如果您需要实时（最小延迟）来进行实时流播放，则设置为false
   }
@@ -165,8 +171,76 @@ const player = flv.init(
 
 销毁播放器
 
+**onError(errorObj, player)**
 
-### Player
+回调函数，播放期间由于任何原因发生错误时触发
+
+```js
+flv.onError = (errObj, player) => {
+    console.log('播放失败...', errorObj)
+}
+```
+
+一个 `errObj` 对象的例子：
+```
+{
+    type: "NetworkError",
+    detail: "Exception",
+    info: {code: -1, msg: 'Failed to fetch'}
+}
+```
+
+**onReconnect(reconnectObj, player)**
+
+回调函数，由断流重连触发
+
+```js
+flv.onReconnect = (reconnectObj, player) => {
+    console.log('重连中...')
+}
+```
+
+`reconnectObj` 在 `errObj` 基础上，额外增加了 `reconnectAttempts` 参数
+
+**onReconnectFailed(errObj, player)**
+
+回调函数，重连次数用尽后触发，代表重连失败
+
+```js
+flv.onReconnect = (errObj, player) => {
+    console.log('重连失败...')
+}
+```
+
+**onProgress(event, player)**
+
+回调函数，video原生的 `onprogress` 事件
+
+**onStuck(player)**
+
+目前连续3s帧无变化则为视频卡住，卡住后不再自动重建，而是提供一个 onStuck 回调，使用者自行处理
+
+**其他回调函数**
+
+原mpegts中的各个 [`mpegts.Events` ](https://github.com/xqq/mpegts.js/blob/master/docs/api.md#mpegtsevents)回调，名称为 `on+大驼峰`
+
+参数均为 `event` 和 `player`
+
+| 回调函数                                                   | 对应的Event                   | Description                                      |
+|--------------------------------------------------------|----------------------------|--------------------------------------------------|
+| onError(errObj, player)                                   | ERROR                      | 播放期间由于任何原因发生错误                                   |
+| onLoadingComplete(player)                              | LOADING_COMPLETE           | 输入MediaDataSource已完全缓冲到结束                        |
+| onRecoveredEarlyEof(player)                            | RECOVERED_EARLY_EOF        | 缓冲期间发生意外的网络EOF，但已自动恢复                            |
+| onMediaInfo(mediaInfo, player)                         | MEDIA_INFO                 | 提供媒体的技术信息，例如视频/音频编解码器，比特率等                       |
+| onMetadataArrived(metadata, player)                    | METADATA_ARRIVED           | 用"onMetaData"标记提供FLV文件（流）可以包含的元数据                 |
+| onScriptdataArrived(data, player)                      | SCRIPTDATA_ARRIVED         | 提供FLV文件（流）可以包含的脚本数据（OnCuePoint / OnTextData）     |
+| onTimedId3MetadataArrived(timed_id3_metadata, player)  | TIMED_ID3_METADATA_ARRIVED | 提供包含私有数据的定时ID3元数据包（stream_type=0x15）回调           |
+| onSmpte2038MetadataArrived(smpte2038_metadata, player) | SMPTE2038_METADATA_ARRIVED | 提供包含私有数据的SMPTE2038元数据包回调                         |
+| onScte35MetadataArrived(scte35_metadata, player)       | SCTE35_METADATA_ARRIVED    | 提供包含（stream_type=0x86）的 SCTE35 元数据包的回调           |
+| onPesPrivateDataArrived(private_data, player)          | PES_PRIVATE_DATA_ARRIVED   | 提供包含私有数据的ISO/IEC 13818-1 PES数据包（stream_type=0x06）回调 |
+| onStatisticsInfo(statisticsInfo, player)               | STATISTICS_INFO            | 提供播放统计信息，例如丢帧，当前速度等。                             |
+
+### Player对象
 
 通过调用 `init()` 方法产生的 flvjs.player 对象，该插件在原有基础上进行了扩展，增加了以下方法：
 
@@ -182,28 +256,22 @@ const player = flv.init(
 
 销毁播放器
 
-**onerror(event)**
+**已废弃 onerror(event)**
 
-flvjs / mpegts 的 `ERROR` 事件
+mpegts 的 `ERROR` 事件，请使用 `flv.onError` 替代
 
-```js
-// e.g.
-player.onerror = (e) => {
-  console.log('error', e)
-}
-```
 
-**onstats(event)**
+**已废弃 onstats(event)**
 
-flvjs / mpegts 的 `STATISTICS_INFO` 事件
+mpegts 的 `STATISTICS_INFO` 事件，请使用 `flv.onStatisticsInfo` 替代
 
-**onmedia(event)**
+**已废弃 onmedia(event)**
 
-flvjs / mpegts 的 `MEDIA_INFO` 事件
+mpegts 的 `MEDIA_INFO` 事件，请使用 `flv.onMediaInfo` 替代
 
 **其他属性/方法**
 
-flvjs.player 对象上的属性：
+mpegts.player 对象上的属性：
 
 ```typescript
 interface Player {
